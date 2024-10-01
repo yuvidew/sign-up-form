@@ -1,95 +1,69 @@
+
+import Stack from"@mui/material/Stack";
+import { FormFiled } from "@/components/FormFiled";
+import Button from "@mui/material/Button";
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import Image from "next/image";
-import styles from "./page.module.css";
+import img from "../public/img.jpg"
+import { ThemeClientProvider } from "@/components/Provider/ThemeClientProvider";
+import { Card } from "@mui/material";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <ThemeClientProvider>
+        <Card
+          style={{
+            width : "80%",
+            height : "80%",
+          }}
+        >
+          <Stack 
+            direction="row" 
+            spacing={2}
+            sx={{
+                width : "100%",
+                boxShadow : "initial",
+                borderRadius : "1rem",
+                padding : "2rem 3rem"
+            }} 
           >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <FormFiled/>
+            <div style={{
+              width : "50%",
+              display : "flex",
+              alignItems : "center",
+              justifyContent : "center"
+            }}>
+              <Image 
+                src = {img}
+                alt="image"
+                width={500}
+                height={500}
+                style={{
+                  borderRadius : "20rem"
+                }}
+              />
+            </div>
+          </Stack>
+          <div style={{display : "flex" , alignItems: "center" , justifyContent : "end" , gap : "1rem" , padding: "1rem 2rem"}}>
+            <Button 
+              variant="outlined" 
+              endIcon = {<ErrorOutlineIcon/>} 
+              sx={{
+                border : " 1px solid #88898a",
+                color : "#88898a"
+              }}
+            >
+              Need Help
+            </Button>
+            <Button variant="outlined" >
+              Privacy Policy
+            </Button>
+          </div>
+          <div style={{paddingBottom : "1rem"}} />
+        </Card>
+    </ThemeClientProvider>
   );
 }
