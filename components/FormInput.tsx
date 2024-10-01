@@ -2,7 +2,7 @@ import Typography  from '@mui/material/Typography';
 import TextField from "@mui/material/TextField";
 import React from 'react'
 import InputAdornment from '@mui/material/InputAdornment';
-import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 
 interface props {
     label: string,
@@ -18,19 +18,15 @@ export const FormInput = ({
     type
 }: props) => {
     return (
-        <Box sx={{
-            display : "flex",
-            flexDirection : "column"
-        }}>
+        <Stack direction={"column"} gap={".9rem"}>
             <Typography 
                 variant='body1' 
                 component={"span"} 
             >
-                    {label} <span style={{color : "red"}}>*</span>
+                {label} <span style={{color : "red"}}>*</span>
             </Typography>
-            <div style={{marginTop : ".7rem"}}></div>
             <TextField
-                id="input-with-icon-textfield"
+                id={`input-for-${label}`}
                 size="small"
                 type={type}
                 slotProps={{
@@ -45,6 +41,6 @@ export const FormInput = ({
                 variant="outlined"
                 placeholder={placeholder}
             />
-        </Box>
+        </Stack>
     )
 }

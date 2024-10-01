@@ -1,25 +1,25 @@
 "use client";
 
 import React, { ReactNode, useState, useEffect } from "react";
-import { Box, Button, createTheme, ThemeProvider } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import {ThemeProvider , createTheme} from "@mui/material";
 import DarkMode from "@mui/icons-material/DarkMode";
 import CssBaseline from "@mui/material/CssBaseline";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-// Custom theme that supports light and dark mode
+
 const getDesignTokens = (mode: 'light' | 'dark') => ({
     palette: {
         mode,
         ...(mode === 'light'
             ? {
-                // Light mode palette options
                 background: {
                     default: "#f7f7f5",
                 },
             }
             : {
-                // Dark mode palette options
                 background: {
                     default: "#121212",
                 },
@@ -45,15 +45,8 @@ export const ThemeClientProvider = ({ children }: { children: ReactNode }) => {
             <Box
                 sx={{
                     position: "relative",
-                    display: "flex",
-                    width: "100%",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    bgcolor: "background.default",
-                    color: "text.primary",
-                    borderRadius: 1,
-                    p: 3,
-                    height: "100vh",
+                    width : "100%",
+                    height : "100%"
                 }}
             >
                 {children}

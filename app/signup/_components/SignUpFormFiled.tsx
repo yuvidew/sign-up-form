@@ -1,19 +1,22 @@
-import Typography from '@mui/material/Typography'
 import React from 'react'
-import { FormInput } from './FormInput'
+import Typography from '@mui/material/Typography'
+import { FormInput } from '@/components/FormInput'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { GitHub, Google, Key, Mail } from '@mui/icons-material';
+import { Key, Mail } from '@mui/icons-material';
 import Checkbox from '@mui/material/Checkbox';
-import Link from 'next/link';
 import Button from '@mui/material/Button';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export const FormFiled = () => {
+export const SignUpFormFiled = () => {
     return (
-        <div style={{
+        <Box sx={{
             width: "50%",
         }}>
             <Typography
@@ -22,18 +25,19 @@ export const FormFiled = () => {
                 sx={{
                     fontSize: "3rem",
                     fontWeight: "bold",
-                    textAlign: "center"
+                    textAlign: "center",
+                    marginBottom : "2.3rem"
                 }}
             >
                 Create Your Account
             </Typography>
 
-            <div
-                style={{
-                    width: "65%",
+            <Stack
+                direction={"column"}
+                gap={"1.5rem"}
+                sx={{
+                    width: "63.5%",
                     margin: "auto",
-                    padding: "1rem 0rem",
-                    marginTop: "1rem"
                 }}
             >
 
@@ -44,7 +48,6 @@ export const FormFiled = () => {
                     placeholder='Enter your full name..'
                 />
 
-                <div style={{ marginTop: "1rem" }}></div>
                 <FormInput
                     type={'email'}
                     label='Email'
@@ -52,7 +55,6 @@ export const FormFiled = () => {
                     placeholder='Enter your email..'
                 />
 
-                <div style={{ marginTop: "1rem" }}></div>
                 <FormInput
                     type={"password"}
                     label='Password'
@@ -60,14 +62,19 @@ export const FormFiled = () => {
                     placeholder='Enter your password..'
                 />
 
-                <div style={{ marginTop: "1rem" }}></div>
 
-                <div style={{ marginTop: "1rem", display: "flex", alignItems: "center" }} >
+                <Stack direction={"row"} alignItems={"center"} justifyContent={"start"}  style={{ marginTop: ".7rem"}} >
                     <Checkbox {...label} />
-                    <Typography sx={{ fontSize: ".9rem" }}> I agree to all <Link href={"#"} style={{ color: "blue" }}>Terms & condition</Link></Typography>
-                </div>
+                    <Typography sx={{ fontSize: ".9rem" }}> I agree to all <Link href={"#"} >Terms & condition</Link></Typography>
+                </Stack>
 
-                <div style={{ marginTop: "1.4rem", gap: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Stack 
+                    direction={"row"}
+                    alignItems={"center"}
+                    justifyContent={"center"}
+                    gap={"1rem"}
+                    style={{ marginTop: "1.4rem"}}
+                >
                     <Button
                         variant="contained"
                         endIcon={<ChevronRightIcon />}
@@ -83,20 +90,30 @@ export const FormFiled = () => {
                     >
                         OR
                     </Typography>
-                    <IconButton aria-label="delete">
-                        <Google />
+                    <IconButton aria-label="google" size="small" >
+                        <Image
+                            src={"./google.svg"}
+                            alt='google'
+                            width={25}
+                            height={25}
+                        />
                     </IconButton>
-                    <IconButton aria-label="delete">
-                        <GitHub />
+                    <IconButton aria-label="github" size="small" >
+                        <Image
+                            src={"./github.svg"}
+                            alt='github'
+                            width={25}
+                            height={25}
+                        />
                     </IconButton>
-                </div>
+                </Stack>
 
                 <Typography 
                     sx={{textAlign : "center" , fontSize : ".9rem" , marginTop : "1.5rem" , color: "#88898a" }} 
                 >
-                    Already have an account? <Link href={"#"} style={{color : "blue"}} >Login</Link> 
+                    Already have an account? <Link href={"/login"} style={{color : "#1571c2"}} >Login</Link> 
                 </Typography>
-            </div>
-        </div>
+            </Stack>
+        </Box>
     )
 }

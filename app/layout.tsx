@@ -1,9 +1,12 @@
-
-
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { createTheme, ThemeProvider } from "@mui/material";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import { ThemeClientProvider } from "@/components/Provider/ThemeClientProvider";
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import Button from "@mui/material/Button";
+import Stack  from "@mui/material/Stack";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,8 +25,6 @@ export const metadata: Metadata = {
 };
 
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,7 +33,43 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          {children}
+        <ThemeClientProvider>
+          <Box
+            sx={{
+              bgcolor: "background.default",
+              width: "100%",
+              height: "100vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
+            <Card
+              sx={{
+                width: "80%",
+                borderRadius: "1rem",
+                padding : "1rem .4rem"
+              }}
+            >
+              {children}
+              <Stack direction={"row"} alignItems={"center"} justifyContent={"end"} gap={"1rem"}  sx={{padding: "1rem 2rem" }}>
+                <Button
+                  variant="outlined"
+                  endIcon={<ErrorOutlineIcon />}
+                  sx={{
+                    border: " 1px solid #88898a",
+                    color: "#88898a"
+                  }}
+                >
+                  Need Help
+                </Button>
+                <Button variant="outlined" >
+                  Privacy Policy
+                </Button>
+              </Stack>
+            </Card>
+          </Box>
+        </ThemeClientProvider>
       </body>
     </html>
   );
