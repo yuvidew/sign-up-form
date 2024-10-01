@@ -111,7 +111,7 @@ export const SignUpFormFiled = () => {
                 <Typography 
                     sx={{textAlign : "center" , fontSize : ".9rem" , marginTop : "1.5rem" , color: "#88898a" }} 
                 >
-                    Already have an account? <Link href={"/login"} style={{color : "#1571c2"}} >Login</Link> 
+                    Already have an account? <Link href={"/"} style={{color : "#1571c2"}} >Login</Link> 
                 </Typography>
             </Stack>
         </Box>
