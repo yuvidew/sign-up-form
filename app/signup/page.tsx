@@ -16,7 +16,7 @@ export default function SignUpHome() {
               width : "100%",
               boxShadow : "initial",
               borderRadius : "1rem",
-              padding : "2rem 3rem"
+              padding : "1rem 3rem"
           }} 
         >
           <SignUpFormFiled/>

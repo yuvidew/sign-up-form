@@ -27,7 +27,7 @@ export const LoginFormFiled = () => {
                     fontSize: "3rem",
                     fontWeight: "bold",
                     textAlign: "left",
-                    marginBottom : "2.3rem"
+                    marginBottom : "2rem"
                 }}
             >
                 Hey, Hello
